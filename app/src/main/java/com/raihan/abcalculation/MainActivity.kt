@@ -20,11 +20,49 @@ class MainActivity : AppCompatActivity() {
 
         var navController = findNavController(R.id.fragmentContainerView)
         binding.bottombar.setupWithNavController(navController)
+       // binding.drawerNav.setupWithNavController(navController)
 
         actionBarDrawerToggle = ActionBarDrawerToggle(this,binding.drawerLayout,R.string.nav_open,R.string.nav_close)
         actionBarDrawerToggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.drawerNav.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.BMIFragment ->{
+                    binding.drawerNav.setupWithNavController(navController)
+                    binding.drawerLayout.closeDrawers()
+                }
+                R.id.scientificFragment -> {
+                    binding.drawerNav.setupWithNavController(navController)
+                    binding.drawerLayout.closeDrawers()
+                }
+                R.id.tempFragment ->{
+                    binding.drawerNav.setupWithNavController(navController)
+                    binding.drawerLayout.closeDrawers()
+                }
+                R.id.white ->{
+                    binding.drawerLayout.setBackgroundColor(getResources().getColor(R.color.white))
+                    binding.bottombar.setBackgroundColor(getResources().getColor(R.color.white))
+                    binding.drawerLayout.closeDrawers()
+
+                }
+                R.id.black ->{
+                    binding.drawerLayout.setBackgroundColor(getResources().getColor(R.color.black))
+                    binding.bottombar.setBackgroundColor(getResources().getColor(R.color.black))
+                    binding.drawerLayout.closeDrawers()
+
+                }
+                R.id.red ->{
+                    binding.drawerLayout.setBackgroundColor(getResources().getColor(R.color.red))
+                    binding.bottombar.setBackgroundColor(getResources().getColor(R.color.red))
+                    binding.drawerLayout.closeDrawers()
+
+                }
+            }
+            true
+        }
+
 
     }
 
