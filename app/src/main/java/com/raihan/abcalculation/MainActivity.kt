@@ -53,12 +53,12 @@ class MainActivity : AppCompatActivity() {
                     binding.drawerLayout.closeDrawers()
 
                 }
-                R.id.red ->{
+               /* R.id.red ->{
                     binding.drawerLayout.setBackgroundColor(getResources().getColor(R.color.red))
                     binding.bottombar.setBackgroundColor(getResources().getColor(R.color.red))
                     binding.drawerLayout.closeDrawers()
 
-                }
+                }*/
             }
             true
         }

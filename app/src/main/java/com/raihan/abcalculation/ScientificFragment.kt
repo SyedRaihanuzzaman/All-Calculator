@@ -1,59 +1,150 @@
 package com.raihan.abcalculation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import com.raihan.abcalculation.databinding.FragmentBMIBinding
+import com.raihan.abcalculation.databinding.FragmentScientificBinding
+import net.objecthunter.exp4j.ExpressionBuilder
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ScientificFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ScientificFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding:FragmentScientificBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
+
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scientific, container, false)
+        binding = FragmentScientificBinding.inflate(layoutInflater, container, false)
+
+          binding.btnAc.setOnClickListener{
+              binding.workingsTV.text = ""
+              binding.resultTV.text = ""
+          }
+        /*binding.btnSin.setOnClickListener {
+            val operand = binding.workingsTV.text.toString()
+            val result = Math.sin(Math.toRadians(operand.toDouble()))
+            binding.workingsTV.text = result.toString()
+        }*/
+
+
+        binding.btn0.setOnClickListener {
+            binding.workingsTV.append("0")
+        }
+        binding.btn1.setOnClickListener {
+            binding.workingsTV.append("1")
+        }
+        binding.btn2.setOnClickListener {
+            binding.workingsTV.append("2")
+        }
+        binding.btn3.setOnClickListener {
+            binding.workingsTV.append("3")
+        }
+        binding.btn4.setOnClickListener {
+            binding.workingsTV.append("4")
+        }
+        binding.btn5.setOnClickListener {
+            binding.workingsTV.append("5")
+        }
+        binding.btn6.setOnClickListener {
+            binding.workingsTV.append("6")
+        }
+        binding.btn7.setOnClickListener {
+            binding.workingsTV.append("7")
+        }
+        binding.btn8.setOnClickListener {
+            binding.workingsTV.append("8")
+        }
+        binding.btn9.setOnClickListener {
+            binding.workingsTV.append("9")
+        }
+        binding.btnSin.setOnClickListener {
+            binding.workingsTV.append("sin")
+        }
+        binding.btnCos.setOnClickListener {
+            binding.workingsTV.append("cos")
+        }
+        binding.btnTan.setOnClickListener {
+            binding.workingsTV.append("tan")
+        }
+        binding.btnLog.setOnClickListener {
+            binding.workingsTV.append("log")
+        }
+        binding.btnIn.setOnClickListener {
+            binding.workingsTV.append("In")
+        }
+        binding.btnStartBracket.setOnClickListener {
+            binding.workingsTV.append("(")
+        }
+        binding.btnEndBracket.setOnClickListener {
+            binding.workingsTV.append(")")
+        }
+        binding.btnDot.setOnClickListener {
+            binding.workingsTV.append(".")
+        }
+
+        binding.btnAddition.setOnClickListener {
+            binding.workingsTV.append("+")
+        }
+        binding.btnSubstraction.setOnClickListener {
+            binding.workingsTV.append("-")
+        }
+        binding.btnDivision.setOnClickListener {
+            binding.workingsTV.append("/")
+        }
+        binding.btnMultiplication.setOnClickListener {
+            binding.workingsTV.append("×")
+        }
+        binding.btnFactorial.setOnClickListener {
+            binding.workingsTV.append("!")
+        }
+
+        binding.btnEqual.setOnClickListener {
+            val expression = ExpressionBuilder(binding.workingsTV.text.toString()).build()
+            val result = expression.evaluate()
+            val longresult = result.toLong()
+
+            if(result==longresult.toDouble()){
+                binding.resultTV.text = longresult.toString()
+
+            }else{
+                binding.resultTV.text = result.toString()
+            }
+        }
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ScientificFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ScientificFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

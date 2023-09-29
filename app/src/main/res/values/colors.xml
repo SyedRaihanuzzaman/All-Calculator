@@ -2,5 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#E41414</color>
+    <color name="red">#F00</color>
+    <color name="almostBlack">#222</color>
+    <color name="orange">#FF8c00</color>
+    <color name="under_weight">#E8E3DC</color>
+    <color name="normal">#4CAF50</color>
+    <color name="over_weight">#E1AEBF</color>
+    <color name="obese">#F22F22</color>
 </resources>

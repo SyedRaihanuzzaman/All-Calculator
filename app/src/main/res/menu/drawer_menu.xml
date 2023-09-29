@@ -15,16 +15,16 @@
         android:title="Temperature"
         android:icon="@drawable/thermometer"/>
     <item android:id="@+id/color"
-        android:title="BG Color">
+        android:title="THEME">
         <menu>
             <item android:id="@+id/white"
-                android:title="White"/>
+                android:title="Light"/>
 
             <item android:id="@+id/black"
-                android:title="Black"/>
+                android:title="Dark"/>
 
-            <item android:id="@+id/red"
-                android:title="Red"/>
+           <!-- <item android:id="@+id/red"
+                android:title="Red"/>-->
         </menu>
 
 
